@@ -1,59 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Frontend Mentor | Loopstudios landing page</title>
 
   <link rel="stylesheet" href="styles.css">
   <style>
-    .attribution { font-size: 11px; text-align: center; margin-top: 30px; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
   </style>
 </head>
+
 <body>
-  <section class="header"> 
-      <nav class="nav-container">
-       
-          <img src="images/logo.svg" alt="" class="logo">
-          <ul>
-            <li>About</li>
-            <li>Careers</li>
-            <li>Events</li>
-            <li>Products</li>
-            <li>Support</li>
-            <button><img src="images/icon-hamburger.svg" alt=""></button>
-          </ul>
-       
-      </nav>
-      
-        <div class="header-text">
-          <p>IMMERSIVE EXPERIENCES<br>THAT DELIVER</p>
-        </div>
-    
-      
-    
+  <section class="header">
+    <div id="menu">
+      <button onclick="showMenu()" class="close"><img src="images/icon-close.svg" alt="" /></button>
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Support</a></li>
+      </ul>
+    </div>
+
+    <nav class="nav-container">
+
+      <img src="images/logo.svg" alt="" class="logo">
+      <ul class="nav-items">
+        <li class="nav-item"><a href="#">About</a></li>
+        <li class="nav-item"><a href="#">Careers</a></li>
+        <li class="nav-item"><a href="#">Events</a></li>
+        <li class="nav-item"><a href="#">Products</a></li>
+        <li class="nav-item"><a href="#">Support</a></li>
+        <button onclick="showMenu()" class="hamburger"><img src="images/icon-hamburger.svg" alt=""></button>
+
+      </ul>
+
+    </nav>
+
+    <div class="header-text">
+      <p>IMMERSIVE EXPERIENCES<br>THAT DELIVER</p>
+    </div>
+
+
+
   </section>
 
-   <section class="vr">
-     <div class="inner-vr">
+  <section class="vr">
+    <div class="inner-vr">
       <img src="images/desktop/image-interactive.jpg" alt="">
       <div>
         <p>THE LEADER IN INTERACTIVE VR</p>
-        <p>Founded in 2011, Loopstudios has been producing world-class virtual reality 
-          projects for some of the best companies around the globe. Our award-winning 
-          creations have transformed businesses through digital experiences that bind 
+        <p>Founded in 2011, Loopstudios has been producing world-class virtual reality
+          projects for some of the best companies around the globe. Our award-winning
+          creations have transformed businesses through digital experiences that bind
           to their brand.
         </p>
       </div>
-     </div>
-    
+    </div>
+
   </section>
   <section class="creations">
-  
+
     <div class="creations-heading">
       <p>OUR CREATIONS</p>
       <button>SEE ALL</button>
@@ -84,8 +102,8 @@
       <div class="img8 images">
         <p>MAKE IT <br>FISHEYE</p>
       </div>
-    </div>    
-  </section> 
+    </div>
+  </section>
   <footer>
     <div class="footer">
       <div>
@@ -109,16 +127,21 @@
       </div>
     </div>
     <div class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
       Coded by <a href="#">Abisola</a>.
     </div>
   </footer>
- 
-  
+
+
+
+
+
 </body>
+<script src="index.js"></script>
+
 </html>
 
- <!-- About
+<!-- About
   Careers
   Events
   Products

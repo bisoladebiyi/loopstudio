@@ -4,9 +4,10 @@ html {
   font-size: 62.5%;
 }
 
-* {
+*,body {
   padding: 0;
   margin: 0;
+  list-style: none;
 }
 
 .header {
@@ -16,6 +17,8 @@ html {
   height: 620px;
   background-size: cover;
   background-repeat: no-repeat;
+  position: relative;
+  overflow-x: hidden;
 }
 
 .header .nav-container {
@@ -28,21 +31,21 @@ html {
   margin-bottom: 60px;
 }
 
-.header ul {
+.header .nav-items {
   list-style: none;
   display: flex;
   flex-direction: row;
   font-family: Alata;
 }
 
-.header ul li {
+.header .nav-item {
   margin-left: 20px;
   position: relative;
   cursor: pointer;
   font-size: 1.3rem;
 }
 
-.header ul li::before {
+.header .nav-item::before {
   content: "";
   width: 0%;
   height: 2px;
@@ -53,12 +56,46 @@ html {
   border-radius: 3px;
 }
 
-.header ul li:hover::before {
+.header .nav-item:hover::before {
   width: 100%;
 }
+.header .nav-item a {
+    text-decoration: none;
+    color: #fff;
+}
 
-.header ul button {
-  visibility: hidden;
+.header .nav-items .hamburger {
+  display: none;
+}
+.close {
+    background: none;
+    border: none;
+    margin-bottom: 40px ;
+    cursor: pointer;
+}
+#menu {
+    display: none;
+  opacity: .9;
+  background: #000000;
+  position: fixed;
+  top: 0px;
+  right: -250px;
+  padding: 20px;
+  width: 200px;
+  height: 100vh;
+  transition: right ease 0.3s;
+  z-index: 10000;
+}
+#menu ul li {
+  margin-bottom: 25px;
+  color: #fff;
+  font-weight: 400;
+  font-family: Alata;
+  font-size: 13px;
+}
+#menu ul li a {
+  color: #fff;
+  text-decoration: none;
 }
 
 .header .header-text {
@@ -76,6 +113,7 @@ html {
 .inner-vr {
   padding: 150px 120px 0;
   position: relative;
+  overflow: visible;
 }
 
 .vr img {
@@ -319,6 +357,18 @@ footer div .socials div {
   text-align: right;
 }
 
+.hide{
+    display: none !important;
+ }  
+
+
+
+
+
+
+
+
+
 @media (max-width: 1040px) and (min-width: 950px) {
   .header .nav-container {
     padding: 40px 60px;
@@ -363,16 +413,19 @@ footer div .socials div {
 }
 
 @media (max-width: 951px) and (min-width: 0px) {
-  .header ul li {
+  .header .nav-item  {
     display: none;
   }
 
-  .header ul button {
-    visibility: visible;
+  .header .nav-items .hamburger {
+    display: flex;
     background: transparent;
     border: none;
     outline: none;
     cursor: pointer;
+  }
+  #menu {
+      display: block;
   }
   footer .footer {
     display: block;
@@ -430,8 +483,7 @@ footer div .socials div {
     font-size: 3rem;
     margin-bottom: 30px;
   }
- 
- 
+
   footer div .socials div {
     text-align: left;
     margin-top: 50px;
@@ -444,275 +496,273 @@ footer div .socials div {
 }
 
 @media (max-width: 749px) and (min-width: 580px) {
-    .header .nav-container {
-      padding: 20px 40px;
-    }
-    .header {
-     
-        height: 500px;
-       
-      }
-   
-    .header .header-text {
+  .header .nav-container {
+    padding: 20px 40px;
+  }
+  .header {
+    height: 500px;
+  }
+  #menu {
+      width: 170px;
+  }
+
+  .header .header-text {
     width: 400px;
-      font-size: 5rem;
-      margin-left: 40px;
-    }
-  
-    .inner-vr {
-      padding: 100px 40px 0;
-    }
-  
-    .vr img {
-      width: 80%;
-    }
-  
-    .vr .inner-vr div {
-      padding: 20px 20px 10px;
-    }
-  
-    .vr div p:first-child {
-      font-size: 2rem;
-    }
-  
-    .vr div p:last-child {
-      margin-top: 20px;
-      font-size: 1rem;
-      line-height: 20px;
-    }
-    .creations .creations-heading p {
-        font-size: 2.5rem;
-    }
-    .creations {
-      padding: 200px 40px;
-    }
-  
-    .creations .imgs {
-      padding-top: 0px;
-      margin-top: 50px;
-      display: block;
-    }
-  
-    .creations .imgs .images {
-      width: 100%;
-      height: 200px;
-      font-size: 3rem;
-      margin-bottom: 30px;
-    }
-    footer {
-    
-        padding: 40px;
-       
-      }
-    footer .footer {
-        width: 100%;
-    }
-   
-    footer div .socials div {
-      text-align: left;
-      margin-top: 50px;
-    }
-    footer div .socials img {
-      width: 20px;
-      margin-right: 15px;
-      margin-left: 0;
-    }
-    .logo{
-        width: 30%;
-    }
-    footer .footer-logo {
-        width: 30%;
-      }
+    font-size: 5rem;
+    margin-left: 40px;
   }
 
-  @media (max-width: 579px) and (min-width: 378px) {
-    .header .nav-container {
-      padding: 0px 30px;
-    }
-    .header {
-     
-        height: 400px;
-       
-      }
-   
-    .header .header-text {
+  .inner-vr {
+    padding: 100px 40px 0;
+  }
+
+  .vr img {
+    width: 80%;
+  }
+
+  .vr .inner-vr div {
+    padding: 20px 20px 10px;
+  }
+
+  .vr div p:first-child {
+    font-size: 2rem;
+  }
+
+  .vr div p:last-child {
+    margin-top: 20px;
+    font-size: 1rem;
+    line-height: 20px;
+  }
+  .creations .creations-heading p {
+    font-size: 2.5rem;
+  }
+  .creations {
+    padding: 200px 40px;
+  }
+
+  .creations .imgs {
+    padding-top: 0px;
+    margin-top: 50px;
+    display: block;
+  }
+
+  .creations .imgs .images {
+    width: 100%;
+    height: 200px;
+    font-size: 3rem;
+    margin-bottom: 30px;
+  }
+  footer {
+    padding: 40px;
+  }
+  footer .footer {
+    width: 100%;
+  }
+
+  footer div .socials div {
+    text-align: left;
+    margin-top: 50px;
+  }
+  footer div .socials img {
+    width: 20px;
+    margin-right: 15px;
+    margin-left: 0;
+  }
+  .logo {
+    width: 30%;
+  }
+  footer .footer-logo {
+    width: 30%;
+  }
+
+}
+
+@media (max-width: 579px) and (min-width: 378px) {
+  .header .nav-container {
+    padding: 0px 30px;
+  }
+  .header {
+    height: 400px;
+  }
+
+  .header .header-text {
     width: 280px;
-      font-size: 3.5rem;
-      margin-left: 30px;
-      padding: 30px 20px;
-    }
-  
-    .inner-vr {
-      padding: 50px 30px 0;
-    }
-  
-    .vr img {
-      width: 100%;
-    }
-  
-    .vr .inner-vr div {
-        width: 40%;
-      padding: 20px 20px 10px;
-      left: 49%;
-    }
-  
-    .vr div p:first-child {
-      font-size: 2rem;
-    }
-  
-    .vr div p:last-child {
-      margin-top: 10px;
-      font-size: .9rem;
-      line-height: 15px;
-    }
-    .creations .creations-heading p {
-        font-size: 2.3rem;
-    }
-    .creations {
-      padding: 200px 30px 100px;
-    }
-    .creations .creations-heading button{
-        width: 100px;
-        height: 35px;
-        font-size: 1rem;
-        
-    }
-    .creations .imgs {
-      padding-top: 0px;
-      margin-top: 50px;
-      display: block;
-    }
-    .creations .imgs .images {
-      width: 100%;
-      height: 150px;
-      font-size: 3rem;
-      margin-bottom: 30px;
-    }
-    footer {
-        padding: 30px; 
-      }
-    footer .footer {
-        width: 100%;
-    }
-   
-    footer div .socials div {
-      text-align: left;
-      margin-top: 50px;
-    }
-    footer div .socials img {
-      width: 20px;
-      margin-right: 15px;
-      margin-left: 0;
-    }
-    .logo{
-        width: 120px;
-    }
-    footer .footer-logo {
-        width: 120px;
-      }
-      footer ul li {
-          font-size: 1.2rem;
-      }
+    font-size: 3.5rem;
+    margin-left: 30px;
+    padding: 30px 20px;
+  }
+  #menu {
+    width: 170px;
+}
+
+  .inner-vr {
+    padding: 50px 30px 0;
   }
 
-  @media (max-width: 377px) and (min-width: 0px) {
-    .header .nav-container {
-      padding: 0px 20px;
-      margin-bottom: 30px;
-    }
-    .header ul button img {
-        width: 22px;
-    }
-    .header {
-     
-        height: 400px;
-       
-      }
-   
-    .header .header-text {
+  .vr img {
+    width: 100%;
+  }
+
+  .vr .inner-vr div {
+    width: 40%;
+    padding: 20px 20px 10px;
+    left: 49%;
+  }
+
+  .vr div p:first-child {
+    font-size: 2rem;
+  }
+
+  .vr div p:last-child {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    line-height: 15px;
+  }
+  .creations .creations-heading p {
+    font-size: 2.3rem;
+  }
+  .creations {
+    padding: 200px 30px 100px;
+  }
+  .creations .creations-heading button {
+    width: 100px;
+    height: 35px;
+    font-size: 1rem;
+  }
+  .creations .imgs {
+    padding-top: 0px;
+    margin-top: 50px;
+    display: block;
+  }
+  .creations .imgs .images {
+    width: 100%;
+    height: 150px;
+    font-size: 3rem;
+    margin-bottom: 30px;
+  }
+  footer {
+    padding: 30px;
+  }
+  footer .footer {
+    width: 100%;
+  }
+
+  footer div .socials div {
+    text-align: left;
+    margin-top: 50px;
+  }
+  footer div .socials img {
+    width: 20px;
+    margin-right: 15px;
+    margin-left: 0;
+  }
+  .logo {
+    width: 120px;
+  }
+  footer .footer-logo {
+    width: 120px;
+  }
+  footer ul li {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 377px) and (min-width: 0px) {
+  .header .nav-container {
+    padding: 0px 20px;
+    margin-bottom: 30px;
+  }
+  .header ul button img {
+    width: 22px;
+  }
+  .header {
+    height: 400px;
+  }
+
+  .header .header-text {
     width: 200px;
-      font-size: 3rem;
-      margin-left: 20px;
-      padding: 30px 20px;
-      
-    }
-  
-    .inner-vr {
-      padding: 50px 20px 0;
-    }
-  
-    .vr img {
-      width: 100%;
-    }
-  
-    .vr .inner-vr div {
-        width: 50%;
-      padding: 10px 10px 5px;
-      left: 40%;
-    }
-  
-    .vr div p:first-child {
-      font-size: 1.5rem;
-    }
-  
-    .vr div p:last-child {
-      margin-top: 10px;
-      font-size: .9rem;
-      line-height: 15px;
-    }
-    .creations .creations-heading p {
-        font-size: 1.7rem;
-    }
-    .creations {
-      padding: 200px 20px 100px;
-    }
-    .creations .creations-heading button{
-        width: 100px;
-        height: 30px;
-        font-size: .9rem;
-        
-    }
-    .creations .imgs {
-      padding-top: 0px;
-      margin-top: 30px;
-      display: block;
-    }
-    .creations .imgs .images {
-      width: 100%;
-      height: 100px;
-      font-size: 2rem;
-      margin-bottom: 30px;
-    }
-    footer {
-        padding: 30px 15px; 
-      }
-    footer .footer {
-        width: 100%;
-    }
-   
-    footer div .socials div {
-      text-align: left;
-      margin-top: 50px;
-    }
-    footer div .socials img {
-      width: 15px;
-      margin-right: 15px;
-      margin-left: 0;
-    }
-    .logo{
-        width: 120px;
-    }
-    footer .footer-logo {
-        width: 120px;
-      }
-      footer ul  {
-          width: 90%;
-      }
-      footer ul li:not(:first-child) {
-        margin-left: 20px;
-      }
-      footer ul li {
-          font-size: 1rem;
-      }
+    font-size: 3rem;
+    margin-left: 20px;
+    padding: 30px 20px;
+  }
+  #menu {
+    width: 150px;
+}
+
+  .inner-vr {
+    padding: 50px 20px 0;
   }
 
+  .vr img {
+    width: 100%;
+  }
+
+  .vr .inner-vr div {
+    width: 50%;
+    padding: 10px 10px 5px;
+    left: 40%;
+  }
+
+  .vr div p:first-child {
+    font-size: 1.5rem;
+  }
+
+  .vr div p:last-child {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    line-height: 15px;
+  }
+  .creations .creations-heading p {
+    font-size: 1.7rem;
+  }
+  .creations {
+    padding: 200px 20px 100px;
+  }
+  .creations .creations-heading button {
+    width: 100px;
+    height: 30px;
+    font-size: 0.9rem;
+  }
+  .creations .imgs {
+    padding-top: 0px;
+    margin-top: 30px;
+    display: block;
+  }
+  .creations .imgs .images {
+    width: 100%;
+    height: 100px;
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  footer {
+    padding: 30px 15px;
+  }
+  footer .footer {
+    width: 100%;
+  }
+
+  footer div .socials div {
+    text-align: left;
+    margin-top: 50px;
+  }
+  footer div .socials img {
+    width: 15px;
+    margin-right: 15px;
+    margin-left: 0;
+  }
+  .logo {
+    width: 120px;
+  }
+  footer .footer-logo {
+    width: 120px;
+  }
+  footer ul {
+    width: 90%;
+  }
+  footer ul li:not(:first-child) {
+    margin-left: 20px;
+  }
+  footer ul li {
+    font-size: 1rem;
+  }
+}
